@@ -1,0 +1,77 @@
+[project]
+name = "korpusanalyse-mit-python"
+version = "2023.11.13"
+description = "Workshop to get to know the programming language Python"
+readme = "README.md"
+license = "CC-BY-4.0"
+authors = [
+  { name = "Heinz-Alexander Fütterer", email = "fuetterer@ub.fu-berlin.de" },
+  { name = "Susanne Haaf", email = "haaf@bbaw.de" },
+]
+requires-python = ">=3.8"
+classifiers = [
+  "Programming Language :: Python :: 3 :: Only",
+  "Programming Language :: Python :: 3.8",
+  "Programming Language :: Python :: 3.9",
+  "Programming Language :: Python :: 3.10",
+  "Programming Language :: Python :: 3.11",
+  "Programming Language :: Python :: 3.12",
+]
+dependencies = [
+  "hanta~=1.1",
+  "nltk~=3.8",
+  "pandas~=2.1",
+  "requests~=2.31",
+  "seaborn~=0.12",
+  "session-info",
+  "pillow<10.0", # pin, because Pillow 10.0 breaks showing stylecloud images
+  "stylecloud~=0.5",
+]
+[project.optional-dependencies]
+jupyter = [
+  "jupyterlab",
+]
+[project.urls]
+Source = "https://github.com/FDM-FUBerlin/Korpusanalyse-mit-Python"
+
+[build-system]
+build-backend = "hatchling.build"
+requires = [
+  "hatchling",
+]
+
+[tool.hatch.envs.default]
+dependencies = [
+  "nbval",
+  "pytest",
+]
+[tool.hatch.envs.default.scripts]
+test = "pytest --nbval-lax {args:notebooks}"
+
+[tool.hatch.envs.lint]
+detached = true
+dependencies = [
+  "nbstripout~=0.6",
+  "ruff~=0.1",
+]
+[tool.hatch.envs.lint.scripts]
+fmt = "ruff format {args:notebooks}"
+lint = "ruff check {args:notebooks}"
+strip = "nbstripout {args:notebooks}"
+all = [
+  "fmt",
+  "lint",
+]
+
+[tool.ruff]
+line-length = 120
+select = ["B", "E", "F", "I", "S", "TCH", "UP"]
+ignore = [
+  "B018", # useless-expression
+  "E402", # module-import-not-at-top-of-file
+  "E501", # line-too-long
+  "F401", # unused-import
+  "E703", # useless-semicolon
+]
+target-version = "py38"
+include = ["*.py", "*.ipynb", "pyproject.toml"]

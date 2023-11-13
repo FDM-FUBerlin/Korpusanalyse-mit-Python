@@ -1,0 +1,30 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+env:
+  PYTHONUNBUFFERED: 1
+  FORCE_COLOR: 1
+  CLICOLOR_FORCE: 1
+
+concurrency:
+  group: ci
+  cancel-in-progress: true
+
+permissions:
+  contents: read
+
+jobs:
+  lint:
+    runs-on: ubuntu-22.04
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-python@v4
+        with:
+          python-version: "3.11"
+          cache: pip
+      - run: pipx install hatch
+      - run: hatch run lint:all
