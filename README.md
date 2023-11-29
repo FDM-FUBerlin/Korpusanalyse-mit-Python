@@ -17,11 +17,29 @@
 
 ## 🧐 About <a name="about"></a>
 
+Dieser Einführungskurs zur Programmiersprache Python für die Datenauswertung und Korpusanalyse richtet sich an Teilnehmer:innen mit grundlegenden Vorkenntnissen im Bereich der Programmierung allgemein. In einem ersten Teil werden Grundlagen von Python und der Textverarbeitung mit Python behandelt und erste Auswertungen mit dem NLTK (Natural Language Toolkit) unternommen.
+
+Der zweite Teil geht auf die Möglichkeiten der individuellen Auswertung annotierter Korpora (des Deutschen), vom Dateninput über statistische Analysen bis hin zur Visualisierung von Ergebnissen ein.
+
+Diese Veranstaltung ist Teil der Reihe "D4T4 L1T3R4CY".
+
 ## 📚 Inhalte <a name="contents"></a>
+
+- Python: Einführung & grundlegende Konzepte 
+- Methoden zum Einlesen, Aufbereiten & (statistischen) Analysieren von Textdaten
+- nützliche Bibliotheken: Pandas, Matplotlib, NumPy, SciPy, NLTK
+- Jupyter Notebooks/Jupyter Lab
+- Fehlermeldungen & Dokumentation
+
+### Lernziele
+- Verständnis für den Einsatz und das Potenzial von Python für die Textverarbeitung und Korpusanalyse
+- Einführung zum Einsatz einschlägiger Bibliotheken
+- Befähigung zum Umgang mit Fehlermeldungen und sonstigen Problemen
 
 ### Agenda
 
-### Lernziele
+
+
 
 ## 🏁 Getting Started <a name="getting_started"></a>
 
